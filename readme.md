@@ -6,4 +6,5 @@ This repo contains the instructions and assets required to complete the exercise
 
 If you encounter any problems in the exercises, please report them as **issues** in this repo.
 
-The implementation of a simple dialogue with Azure OpenAI instance is [here](./Labfiles/02-azure-openai-api/Python/test-openai-model.ipynb), along with simple conversation history inclusion.
+1. The implementation of a simple dialogue with Azure OpenAI instance is [here](./Labfiles/02-azure-openai-api/Python/test-openai-model.ipynb), along with simple conversation history inclusion.
+2. The implementation of a dialogue with a system message is [here](./Labfiles/03-prompt-engineering/Python/prompt-engineering.ipynb)
