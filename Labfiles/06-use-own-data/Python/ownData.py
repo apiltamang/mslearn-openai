@@ -19,7 +19,14 @@ def main():
         azure_search_endpoint = os.getenv("AZURE_SEARCH_ENDPOINT")
         azure_search_key = os.getenv("AZURE_SEARCH_KEY")
         azure_search_index = os.getenv("AZURE_SEARCH_INDEX")
-        
+
+        print("Azure OpenAI endpoint: " + azure_oai_endpoint)
+        print("Azure OpenAI key: " + azure_oai_key)
+        print("Azure OpenAI deployment: " + azure_oai_deployment)
+        print("Azure Search endpoint: " + azure_search_endpoint)
+        print("Azure Search key: " + azure_search_key)
+        print("Azure Search index: " + azure_search_index)
+
         # Initialize the Azure OpenAI client
         client = AzureOpenAI(
             base_url=f"{azure_oai_endpoint}/openai/deployments/{azure_oai_deployment}/extensions",
@@ -30,7 +37,15 @@ def main():
         text = input('\nEnter a question:\n')
 
         # Configure your data source
-
+        extension_config = dict(data_sources=[
+            {
+                "type": "AzureCognitiveSearch",
+                "parameters": {
+                    "endpoint": azure_search_endpoint,
+                    "key": azure_search_key,
+                    "indexName": azure_search_index
+                }
+            }])
 
         # Send request to Azure OpenAI model
         print("...Sending the following request to Azure OpenAI endpoint...")
